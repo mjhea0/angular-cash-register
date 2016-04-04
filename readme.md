@@ -1,5 +1,7 @@
 # Angular Cash Register
 
+[Live Solution](http://mherman.org/angular-cash-register/)
+
 Build a very simple cash register application. It should have/do the following:
 
 * Include clickable buttons/links at the top that add to a section on the left-hand side.
