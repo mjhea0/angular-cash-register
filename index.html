@@ -9,18 +9,16 @@
   <div class="container">
     <br><br>
       <div class="row">
-         <button type="button" class="btn btn-default" ng-click="addItem('pizza', 12.99)">Pizza - $12.99</button>
-        <button type="button" class="btn btn-default" ng-click="addItem('salad', 5.99)">Salad - $5.99</button>
-         <button type="button" class="btn btn-default" ng-click="addItem('burger', 12.99)">Burger - $12.99</button>
-         <button type="button" class="btn btn-default" ng-click="addItem('cheeseburger', 12.99)">Cheeseburger - $12.99</button>
+        <div class="btn-group" ng-repeat="food in itemList">
+          <button type="button" class="btn btn-default" ng-click="addItem(food.name)">{{food.name}} - {{food.price}}</button>
+        </div>
       </div>
       <br><br>
       <div class="row">
         <div class ="col-md-6">
-          <p ng-if="itemList.pizza">Pizza x{{itemList.pizza}} ({{itemList.pizza * 12.99 | number: 2}})</p>
-          <p ng-if="itemList.salad">Salad x{{itemList.salad}} ({{itemList.salad * 5.99 | number: 2}})</p>
-          <p ng-if="itemList.burger">Burger x{{itemList.burger}} ({{itemList.burger * 12.99 | number: 2}})</p>
-          <p ng-if="itemList.cheeseburger">Cheeseburger x{{itemList.cheeseburger}} ({{itemList.cheeseburger * 12.99 | number:2}})</p>
+          <div ng-repeat="food in itemList">
+            <p>{{food.name}} x {{food.amount}} ({{food.amount * food.price | number: 2}})</p>
+          </div>
         </div>
         <div class="col-md-6">
           <h3>Tax: {{tax | currency}} </h3>
